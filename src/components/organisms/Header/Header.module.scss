@@ -1,0 +1,27 @@
+@import '../../../sass/utils';
+
+.header {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  box-shadow: $shadow-sm;
+  background-color: $primary;
+  color: #fff;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  @include font('lg');
+
+  @include media('md') {
+    @include font('2xl');
+  }
+}

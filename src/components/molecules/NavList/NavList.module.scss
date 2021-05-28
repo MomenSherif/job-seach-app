@@ -1,0 +1,6 @@
+@import '../../../sass/utils';
+
+.nav-list {
+  display: flex;
+  @include space-x(2.4rem);
+}

@@ -8,4 +8,15 @@ body {
   font-size: 1.6rem;
   font-family: 'Roboto', sans-serif;
   color: $black;
+  background-color: $gray-light;
+}
+
+a {
+  color: currentColor;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }

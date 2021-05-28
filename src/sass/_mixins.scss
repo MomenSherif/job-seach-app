@@ -1,9 +1,13 @@
 @import './variables';
 
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+@mixin scrollbars(
+  $size,
+  $foreground-color,
+  $background-color: mix($foreground-color, white, 50%)
+) {
   // For Google Chrome
   &::-webkit-scrollbar {
-    width:  $size;
+    width: $size;
     height: $size;
   }
 
@@ -27,16 +31,27 @@
     @media screen and (min-width: map-get($breakpoints, $bp)) {
       @content;
     }
-
   } @else {
     @error 'Invalid breakpoint: #{$bp}.';
   }
 }
 
 @mixin font($size) {
-   @if map-has-key($fonts, $size) {
-    font-size: map-get($fonts, map-get($fonts, $size));
+  @if map-has-key($fonts, $size) {
+    font-size: map-get($fonts, $size);
   } @else {
     @error 'Invalid size: #{$size}.';
+  }
+}
+
+@mixin space-x($size) {
+  > * + * {
+    margin-left: $size;
+  }
+}
+
+@mixin space-y($size) {
+  > * + * {
+    margin-top: $size;
   }
 }

@@ -38,8 +38,6 @@ export const asyncIncrement =
     // start loading...
     return new Promise((res) => {
       setTimeout(() => {
-        console.log(value);
-
         dispatch({ type: 'INCREMENT', value });
         res(value);
       }, 1000);
