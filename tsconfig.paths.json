@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@atoms/*": ["./components/atoms/*"],
+      "@molecules/*": ["./components/molecules/*"],
+      "@organisms/*": ["./components/organisms/*"],
+      "@pages/*": ["./components/pages/*"],
+      "@hooks": ["./hooks"],
+      "@actions": ["./redux/actions"]
+    }
+  }
+}
