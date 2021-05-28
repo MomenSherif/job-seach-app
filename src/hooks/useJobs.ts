@@ -28,6 +28,6 @@ export default function useJobs() {
     jobs,
     loading,
     error,
-    reFetch: doRetry,
+    refetch: doRetry,
   };
 }

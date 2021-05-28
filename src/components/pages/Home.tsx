@@ -8,7 +8,7 @@ import { repepeatElement } from '@utils';
 import styles from './Home.module.scss';
 
 const Home: React.FC = () => {
-  const { jobs, loading, error, reFetch } = useJobs();
+  const { jobs, loading, error, refetch } = useJobs();
 
   return (
     <>
@@ -18,7 +18,7 @@ const Home: React.FC = () => {
           <JobCard key={uuid} title={title} uuid={uuid} />
         ))}
         {loading && repepeatElement(12, <CardSkeleton />)}
-        <button onClick={reFetch}>Fetch Next</button>
+        <button onClick={refetch}>Fetch Next</button>
       </div>
     </>
   );

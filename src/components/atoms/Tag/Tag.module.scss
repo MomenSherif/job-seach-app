@@ -5,18 +5,23 @@
   align-items: center;
   @include font('sm');
 
-  &.contained {
-    background-color: $primary;
-    color: #fff;
-    border-radius: 0.5rem;
-    padding: 0.6rem 1.2rem;
-  }
-
   @include media('md') {
     @include font(base);
   }
 
   @include media('lg') {
     @include font(md);
+  }
+
+  &.contained {
+    background-color: $primary;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: darken($color: $primary, $amount: 10);
+    }
   }
 }

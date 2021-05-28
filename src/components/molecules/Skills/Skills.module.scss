@@ -1,0 +1,11 @@
+.container {
+  // flex-gap trick
+  // TODO: replace with gap when fully supported in flex
+  margin: -0.5rem -0.35rem;
+  margin-bottom: calc(3rem - 0.35rem);
+
+  & > * {
+    display: inline-flex;
+    margin: 0.5rem 0.35rem;
+  }
+}

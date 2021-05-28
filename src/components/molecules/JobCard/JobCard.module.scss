@@ -10,14 +10,3 @@
 .skills-heading {
   font-weight: normal;
 }
-
-.skills {
-  // flex-gap trick
-  // TODO: replace with gap when fully supported in flex
-  margin: -0.5rem -0.35rem;
-  margin-bottom: calc(3rem - 0.35rem);
-
-  & > * {
-    margin: 0.5rem 0.35rem;
-  }
-}
