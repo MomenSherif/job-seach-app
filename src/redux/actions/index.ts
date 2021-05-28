@@ -1,8 +1,10 @@
 import { ThunkAction as ReduxThunkAction } from 'redux-thunk';
 
-import { RootState } from 'redux/store';
+import { RootState } from '../store';
 import { JobsActionTypes } from './jobs';
-export type AppActions = JobsActionTypes;
+import { SkillsActionTypes } from './skills';
+
+export type AppActions = JobsActionTypes | SkillsActionTypes;
 
 export type ThunkAction<T = any> = ReduxThunkAction<
   Promise<T>,
@@ -13,3 +15,5 @@ export type ThunkAction<T = any> = ReduxThunkAction<
 
 // Action Exports
 export { fetchJobs } from './jobs';
+
+export { addSkills } from './skills';

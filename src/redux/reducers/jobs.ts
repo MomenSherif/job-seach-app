@@ -24,7 +24,7 @@ const initialState: JobsState = {
   offset: 0,
 };
 
-export default function JobsReducer(
+export default function jobsReducer(
   state = initialState,
   action: AppActions,
 ): JobsState {

@@ -1,10 +1,10 @@
 import { normalize, schema } from 'normalizr';
 
 import { getNextOffsetFromLinks } from '@utils';
-import { JobRecord } from '../reducers/jobs';
 import { Job } from '@types';
 import { ThunkAction } from '@actions';
 import { getJobs } from '@api/jobs';
+import { JobRecord } from '../reducers/jobs';
 
 export const FETCH_JOBS_REQUEST = 'FETCH_JOBS_REQUEST';
 export const FETCH_JOBS_SUCCESS = 'FETCH_JOBS_SUCCESS';
