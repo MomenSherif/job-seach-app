@@ -1,0 +1,42 @@
+@import './variables';
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@mixin media($bp) {
+  @if map-has-key($breakpoints, $bp) {
+    @media screen and (min-width: map-get($breakpoints, $bp)) {
+      @content;
+    }
+
+  } @else {
+    @error 'Invalid breakpoint: #{$bp}.';
+  }
+}
+
+@mixin font($size) {
+   @if map-has-key($fonts, $size) {
+    font-size: map-get($fonts, map-get($fonts, $size));
+  } @else {
+    @error 'Invalid size: #{$size}.';
+  }
+}
