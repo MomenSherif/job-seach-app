@@ -1,6 +1,6 @@
 import { normalize, schema } from 'normalizr';
 
-import { getNextOffsetFromLinks } from '@utils';
+import { getOffsetFromLinks } from '@utils';
 import { Job } from '@types';
 import { ThunkAction } from '@actions';
 import { getJobs } from '@api/jobs';
@@ -40,7 +40,7 @@ export const fetchJobsRequest = (): FetchJobsRequestAction => ({
 export const fetchJobsSuccess = (jobs: Job[]): FetchJobsSuccessAction => {
   // TODO: Add types to links
   const { links } = jobs.pop() as any;
-  const offset = getNextOffsetFromLinks(links);
+  const offset = getOffsetFromLinks(links);
 
   const { entities, result } = normalize(jobs, [jobEntity]);
 

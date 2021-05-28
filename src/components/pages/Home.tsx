@@ -2,17 +2,19 @@ import Title from '@atoms/Title';
 import JobCard from '@molecules/JobCard';
 
 import CardSkeleton from '@skeletons/CardSkeleton';
-import { useJobs } from '@hooks';
+import { useJobs, useTotalJobsCount } from '@hooks';
 import { repepeatElement } from '@utils';
 
 import styles from './Home.module.scss';
 
 const Home: React.FC = () => {
+  // TODO: handle error & loading for title
+  const { count } = useTotalJobsCount();
   const { jobs, loading, error, refetch } = useJobs();
 
   return (
     <>
-      <Title component="h1">All Jobs (255)</Title>
+      <Title component="h1">All Jobs ({count})</Title>
       <div className={styles['jobs-container']}>
         {jobs.map(({ uuid, title }) => (
           <JobCard key={uuid} title={title} uuid={uuid} />

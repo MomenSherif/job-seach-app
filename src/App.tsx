@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import Container from '@atoms/Container';
 import Header from '@organisms/Header';
 import Home from '@pages/Home';
-
 import styles from './App.module.scss';
 
 function App() {
