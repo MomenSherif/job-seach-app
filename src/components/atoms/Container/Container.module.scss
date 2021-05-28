@@ -1,0 +1,11 @@
+@import '../../../sass/utils';
+
+.container {
+  max-width: 144rem;
+  margin: 0 auto;
+  padding: 1rem;
+
+  @include media('md') {
+    padding: 2rem;
+  }
+}
