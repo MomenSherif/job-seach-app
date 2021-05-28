@@ -1,0 +1,23 @@
+@import '../../../sass/utils';
+
+.card {
+  background-color: $white;
+  box-shadow: $shadow-sm;
+  border-radius: 0.5rem;
+  padding: 3rem 3.6rem;
+}
+
+.skills-heading {
+  font-weight: normal;
+}
+
+.skills {
+  // flex-gap trick
+  // TODO: replace with gap when fully supported in flex
+  margin: -0.5rem -0.35rem;
+  margin-bottom: calc(3rem - 0.35rem);
+
+  & > * {
+    margin: 0.5rem 0.35rem;
+  }
+}

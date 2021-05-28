@@ -6,8 +6,12 @@
       "@molecules/*": ["./components/molecules/*"],
       "@organisms/*": ["./components/organisms/*"],
       "@pages/*": ["./components/pages/*"],
+      "@skeletons/*": ["./components/skeletons/*"],
       "@hooks": ["./hooks"],
-      "@actions": ["./redux/actions"]
+      "@utils": ["./utils"],
+      "@actions": ["./redux/actions"],
+      "@api/*": ["./api/*"],
+      "@types": ["./types"]
     }
   }
 }

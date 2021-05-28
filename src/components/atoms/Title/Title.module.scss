@@ -1,0 +1,48 @@
+@import '../../../sass/utils';
+
+.title {
+  margin-top: 0;
+  // margin-bottom: calc((66 / 100) * 1em);
+  margin-bottom: 0.7em;
+
+  &.h1 {
+    @include font('2xl');
+
+    @include media('sm') {
+      @include font('3xl');
+    }
+
+    @include media('xl') {
+      @include font('4xl');
+    }
+  }
+
+  &.h2 {
+  }
+
+  &.h3 {
+    @include font('lg');
+
+    @include media('sm') {
+      @include font('xl');
+    }
+
+    @include media('xl') {
+      @include font('2xl');
+    }
+  }
+
+  &.h4 {
+    @include font('base');
+
+    @include media('sm') {
+      @include font('md');
+    }
+  }
+
+  &.h5 {
+  }
+
+  &.h6 {
+  }
+}

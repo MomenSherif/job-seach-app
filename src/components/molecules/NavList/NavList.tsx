@@ -12,10 +12,8 @@ const NavList: React.FC<NavListProps> = ({
     <nav>
       <ul className={styles['nav-list']} {...props}>
         {list.map(({ label, to }, i) => (
-          <li>
-            <NavLink key={String(i)} to={to}>
-              {label}
-            </NavLink>
+          <li key={String(i)}>
+            <NavLink to={to}>{label}</NavLink>
           </li>
         ))}
       </ul>

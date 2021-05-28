@@ -1,0 +1,22 @@
+@import '../../../sass/utils';
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  @include font('sm');
+
+  &.contained {
+    background-color: $primary;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  @include media('md') {
+    @include font(base);
+  }
+
+  @include media('lg') {
+    @include font(md);
+  }
+}
