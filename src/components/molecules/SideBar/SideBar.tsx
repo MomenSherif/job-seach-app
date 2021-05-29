@@ -14,6 +14,7 @@ const SideBar: React.FC<SideBarProps> = ({
   list,
 }) => {
   const isLargeScreen = useMediaQuery('(min-width: 1024px)');
+
   return (
     <aside className={styles.sidebar}>
       <Title component="h2" variant="h3" className={styles.title}>

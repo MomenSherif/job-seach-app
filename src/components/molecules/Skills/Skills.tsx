@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import Tag from '@atoms/Tag';
 import TagsSkeleton from '@skeletons/TagsSkeleton';
 import { useSkills } from '@hooks';
-import { getJobRelatedSkills } from '@api/jobs';
-import * as action from '@actions';
 import styles from './Skills.module.scss';
+import ErrorFallback from '@molecules/ErrorFallback';
 
 const NUM_OF_SKILLS = 6;
 
 const Skills: React.FC<{ jobID: string }> = ({ jobID }) => {
-  const { skills, loading, error, refetch } = useSkills(jobID);
+  const { skills, loading, error } = useSkills(jobID);
 
   return (
     <div className={styles.container}>
@@ -27,6 +26,7 @@ const Skills: React.FC<{ jobID: string }> = ({ jobID }) => {
           </Link>
         ))
       )}
+      {error && <ErrorFallback error={error} message="No skill.." />}
     </div>
   );
 };

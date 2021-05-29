@@ -34,11 +34,13 @@ export default function jobsReducer(
       return {
         ...state,
         loading: true,
+        error: null,
       };
     case FETCH_JOBS_SUCCESS:
       return {
         ...state,
         loading: false,
+        error: null,
         byId: { ...state.byId, ...action.payload },
         allIds: [...state.allIds, ...action.ids],
         offset: action.offset ?? state.offset,

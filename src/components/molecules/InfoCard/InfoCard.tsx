@@ -2,19 +2,8 @@ import { Link } from 'react-router-dom';
 
 import Tag from '@atoms/Tag';
 import Title from '@atoms/Title';
+import InfoCardProps from './InfroCard.type';
 import styles from './InfoCard.module.scss';
-
-interface Tag {
-  label: string;
-  value: string | number;
-}
-
-type InfoCardProps = {
-  to: string;
-  title: string;
-  description?: string;
-  tags: Tag[];
-};
 
 const InfoCard: React.FC<InfoCardProps> = ({
   to,

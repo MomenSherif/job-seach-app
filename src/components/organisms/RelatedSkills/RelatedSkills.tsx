@@ -4,6 +4,7 @@ import CardSkeleton from '@skeletons/CardSkeleton';
 import { useSkills } from '@hooks';
 import { repeatElement } from '@utils';
 import styles from './RelatedSkills.module.scss';
+import ErrorFallback from '@molecules/ErrorFallback';
 
 const RelatedSkills: React.FC<{ jobID: string }> = ({ jobID }) => {
   const { skills, loading, error, refetch } = useSkills(jobID);
@@ -29,6 +30,7 @@ const RelatedSkills: React.FC<{ jobID: string }> = ({ jobID }) => {
                 ]}
               />
             ))}
+        {error && <ErrorFallback error={error} onRetry={refetch} />}
       </div>
     </section>
   );

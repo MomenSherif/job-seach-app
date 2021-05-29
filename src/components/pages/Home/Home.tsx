@@ -1,8 +1,9 @@
+import React, { useRef } from 'react';
+import Skeleton from 'react-loading-skeleton';
+
 import Title from '@atoms/Title';
 import JobCard from '@molecules/JobCard';
-
-import React, { useRef } from 'react';
-
+import ErrorFallback from '@molecules/ErrorFallback';
 import CardSkeleton from '@skeletons/CardSkeleton';
 import { useIntersectionObserver, useJobs, useTotalJobsCount } from '@hooks';
 import { repeatElement } from '@utils';
@@ -10,8 +11,6 @@ import { repeatElement } from '@utils';
 import styles from './Home.module.scss';
 
 const Home: React.FC = () => {
-  // TODO: handle error & loading for title
-  // TODO: Move Jobs to organism
   const { count } = useTotalJobsCount();
   const { jobs, loading, error, refetch } = useJobs();
 
@@ -31,9 +30,13 @@ const Home: React.FC = () => {
           <JobCard key={uuid} title={title} uuid={uuid} />
         ))}
       </div>
-      <div ref={loaderRef} className={styles.loader}>
-        {loading && repeatElement(12, <CardSkeleton />)}
-      </div>
+      {error ? (
+        <ErrorFallback error={error} onRetry={refetch} />
+      ) : (
+        <div ref={loaderRef} className={styles.loader}>
+          {loading && repeatElement(12, <CardSkeleton />)}
+        </div>
+      )}
     </>
   );
 };

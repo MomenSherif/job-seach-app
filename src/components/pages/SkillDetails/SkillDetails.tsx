@@ -7,6 +7,7 @@ import { useSkill } from '@hooks';
 import Layout from '../../templates/Layout';
 import SkillSideBar from './SkillSideBar';
 import styles from './SkillDetails.module.scss';
+import ErrorFallback from '@molecules/ErrorFallback';
 
 const JobDetails: React.FC = () => {
   const { uuid } = useParams<{ uuid: string }>();
@@ -15,7 +16,7 @@ const JobDetails: React.FC = () => {
   return (
     <>
       <header className={styles.header}>
-        {loading ? (
+        {loading || error ? (
           <Skeleton height={60} width="60vw" />
         ) : (
           <>
@@ -23,6 +24,8 @@ const JobDetails: React.FC = () => {
           </>
         )}
       </header>
+      {error && <ErrorFallback error={error} onRetry={refetch} />}
+
       <Layout sidebar={<SkillSideBar skillID={uuid} />}>
         <RelatedJobs skillID={uuid} />
       </Layout>

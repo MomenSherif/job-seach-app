@@ -1,4 +1,5 @@
 import SideBar from '@molecules/SideBar';
+import ErrorFallback from '@molecules/ErrorFallback';
 import { getSkillRelatedSkills } from '@api/skills';
 import { useQuery } from '@hooks';
 
@@ -8,6 +9,8 @@ const JobSideBar: React.FC<{ skillID: string }> = ({ skillID }) => {
     { enable: true },
     [skillID],
   );
+
+  if (error) return <ErrorFallback error={error!} onRetry={refetch} />;
 
   return (
     <SideBar

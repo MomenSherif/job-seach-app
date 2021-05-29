@@ -33,7 +33,7 @@ export default function useQuery<T = any>(
   useEffect(() => {
     if (!enable || !promiseFnRef.current) return;
 
-    if (!state.loading) setState({ loading: true });
+    if (!state.loading) setState({ loading: true, error: null });
 
     promiseFnRef
       .current()

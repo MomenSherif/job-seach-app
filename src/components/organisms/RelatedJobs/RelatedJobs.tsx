@@ -1,5 +1,6 @@
 import Title from '@atoms/Title';
 import InfoCard from '@molecules/InfoCard';
+import ErrorFallback from '@molecules/ErrorFallback';
 import CardSkeleton from '@skeletons/CardSkeleton';
 import { useQuery } from '@hooks';
 import { repeatElement } from '@utils';
@@ -32,6 +33,7 @@ const RelatedJobs: React.FC<{ skillID: string }> = ({ skillID }) => {
                 ]}
               />
             ))}
+        {error && <ErrorFallback error={error} onRetry={refetch} />}
       </div>
     </section>
   );

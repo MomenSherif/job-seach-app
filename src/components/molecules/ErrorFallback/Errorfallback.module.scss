@@ -1,0 +1,60 @@
+@import '../../../sass/utils';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  @include space-y(1rem);
+
+  &.info {
+    color: $info;
+
+    button {
+      background-color: lighten($info, 26);
+
+      &:hover {
+        background-color: darken(lighten($info, 26), 3);
+      }
+    }
+  }
+
+  &.error {
+    color: $error;
+
+    button {
+      background-color: lighten($error, 40);
+
+      &:hover {
+        background-color: darken(lighten($error, 40), 5);
+      }
+    }
+  }
+}
+
+.message {
+  @include font('xl');
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: currentColor;
+  @include font('xl');
+  @include space-x(1rem);
+  box-shadow: $shadow-sm;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  transition-property: background-color, transform;
+
+  &:active {
+    transform: translateY(3px);
+  }
+}
