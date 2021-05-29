@@ -1,6 +1,7 @@
 import React from 'react';
+import { NavLinkProps } from 'react-router-dom';
 
-export interface Link {
+export interface Link extends NavLinkProps {
   label: string;
   to: string;
 }

@@ -11,7 +11,7 @@ import { repeatElement } from '@utils';
 import styles from './Home.module.scss';
 
 const Home: React.FC = () => {
-  const { count } = useTotalJobsCount();
+  const { count, loading: totalLoading } = useTotalJobsCount();
   const { jobs, loading, error, refetch } = useJobs();
 
   const loaderRef = useRef<HTMLDivElement>(null);
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Title component="h1">All Jobs ({count})</Title>
+      <Title component="h1">All Jobs ({totalLoading ? '...' : count})</Title>
       <div className={styles['jobs-container']}>
         {jobs.map(({ uuid, title }) => (
           <JobCard key={uuid} title={title} uuid={uuid} />

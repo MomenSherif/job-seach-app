@@ -9,7 +9,7 @@ import styles from './Header.module.scss';
 const NAV_LINKS: LinkType[] = [
   { label: 'Home', to: '/' },
   { label: 'Search', to: '/search' },
-  { label: 'History', to: '/search/history' },
+  { label: 'History', to: '/search#history', activeClassName: '' },
 ];
 
 const Header: React.FC = () => (
@@ -20,7 +20,9 @@ const Header: React.FC = () => (
           JobsNow
         </Link>
       </div>
-      <NavList list={NAV_LINKS} />
+      <div>
+        <NavList list={NAV_LINKS} />
+      </div>
     </Container>
   </header>
 );
