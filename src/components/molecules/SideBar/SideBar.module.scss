@@ -37,4 +37,8 @@
   & > * {
     flex-shrink: 0;
   }
+
+  .active {
+    color: $primary;
+  }
 }

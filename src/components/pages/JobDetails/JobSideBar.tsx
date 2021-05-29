@@ -3,10 +3,10 @@ import { getJobRelatedJobs } from '@api/jobs';
 import { useQuery } from '@hooks';
 
 const JobSideBar: React.FC<{ jobID: string }> = ({ jobID }) => {
-  const { loading, data } = useQuery(
+  const { loading, data, error, refetch } = useQuery(
     () => getJobRelatedJobs(jobID),
-    { enable: true },
-    [jobID],
+    // { enable: true },
+    // [jobID], // * Related jobs doesn't change between similar jobs
   );
 
   return (

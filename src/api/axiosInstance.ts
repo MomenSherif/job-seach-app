@@ -7,7 +7,11 @@ const instance = axios.create({
 instance.interceptors.response.use(
   (res) => res.data,
   (err: AxiosError) =>
-    Promise.reject(err.response?.data.message || 'Network Error'),
+    Promise.reject(
+      err.response?.data?.error?.code ||
+        err.response?.data?.message ||
+        'NETWORK_ERROR',
+    ),
 );
 
 export default instance;

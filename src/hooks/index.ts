@@ -9,3 +9,4 @@ export { default as useJobs } from './useJobs';
 export { default as useJob } from './useJob';
 export { default as useTotalJobsCount } from './useTotalJobsCount';
 export { default as useSkills } from './useSkills';
+export { default as useSkill } from './useSkill';

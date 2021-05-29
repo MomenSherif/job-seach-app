@@ -8,6 +8,7 @@ export interface Link {
 type NavListProps = {
   variant?: 'horizontal' | 'vertical';
   list: Link[];
+  activeClassName?: string;
 } & Omit<React.HTMLProps<HTMLUListElement>, 'list'>;
 
 export default NavListProps;

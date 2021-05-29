@@ -27,6 +27,7 @@ const SideBar: React.FC<SideBarProps> = ({
         ) : (
           <NavList
             className={styles.navlist}
+            activeClassName={styles.active}
             variant={isLargeScreen ? 'vertical' : 'horizontal'}
             list={list || []}
           />

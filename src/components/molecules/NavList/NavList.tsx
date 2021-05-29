@@ -7,6 +7,7 @@ const NavList: React.FC<NavListProps> = ({
   list,
   className = '',
   variant = 'horizontal',
+  activeClassName,
   ...props
 }) => {
   return (
@@ -17,7 +18,9 @@ const NavList: React.FC<NavListProps> = ({
       >
         {list.map(({ label, to }, i) => (
           <li key={String(i)}>
-            <NavLink to={to}>{label}</NavLink>
+            <NavLink to={to} activeClassName={activeClassName}>
+              {label}
+            </NavLink>
           </li>
         ))}
       </ul>

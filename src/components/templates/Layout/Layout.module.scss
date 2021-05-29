@@ -2,7 +2,7 @@
 
 .container {
   display: grid;
-  gap: 4rem;
+  gap: 6rem;
 
   &.multi-column {
     @include media('lg') {
