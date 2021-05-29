@@ -1,8 +1,10 @@
 import Title from '@atoms/Title';
 import JobCard from '@molecules/JobCard';
 
+import React, { useRef } from 'react';
+
 import CardSkeleton from '@skeletons/CardSkeleton';
-import { useJobs, useTotalJobsCount } from '@hooks';
+import { useIntersectionObserver, useJobs, useTotalJobsCount } from '@hooks';
 import { repeatElement } from '@utils';
 
 import styles from './Home.module.scss';
@@ -13,6 +15,14 @@ const Home: React.FC = () => {
   const { count } = useTotalJobsCount();
   const { jobs, loading, error, refetch } = useJobs();
 
+  const loaderRef = useRef<HTMLDivElement>(null);
+
+  useIntersectionObserver({
+    target: loaderRef,
+    onIntersect: refetch,
+    enabled: !loading,
+  });
+
   return (
     <>
       <Title component="h1">All Jobs ({count})</Title>
@@ -20,8 +30,9 @@ const Home: React.FC = () => {
         {jobs.map(({ uuid, title }) => (
           <JobCard key={uuid} title={title} uuid={uuid} />
         ))}
+      </div>
+      <div ref={loaderRef} className={styles.loader}>
         {loading && repeatElement(12, <CardSkeleton />)}
-        <button onClick={refetch}>Fetch Next</button>
       </div>
     </>
   );

@@ -18,7 +18,7 @@ export default function useJobs() {
   const [retry, doRetry] = useRetry();
 
   useEffect(() => {
-    if (!allIds.length) dispatch(actions.fetchJobs());
+    dispatch(actions.fetchJobs());
   }, [dispatch, retry]);
 
   const jobs = useMemo(() => allIds.map((id) => byId[id]), [allIds, byId]);

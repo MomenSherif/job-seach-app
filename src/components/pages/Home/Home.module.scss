@@ -1,6 +1,7 @@
 @import '../../../sass/utils';
 
-.jobs-container {
+.jobs-container,
+.loader {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 3rem;
@@ -8,4 +9,8 @@
   @include media('lg') {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+.loader {
+  margin-top: 3rem;
 }

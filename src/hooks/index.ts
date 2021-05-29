@@ -3,6 +3,7 @@ export { default as useDispatch } from './useDispatch';
 export { default as useRetry } from './useRetry';
 export { default as useComplexState } from './useComplexState';
 export { default as useMediaQuery } from './useMediaQuery';
+export { default as useIntersectionObserver } from './useIntersectionObserver';
 export { default as useScrollResotration } from './useScrollResotration';
 export { default as useQuery } from './useQuery';
 export { default as useJobs } from './state/useJobs';
