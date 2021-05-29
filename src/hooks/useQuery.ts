@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import useComplexState from './useComplexState';
-import useRetry from './useRetry';
-
+import { useComplexState, useRetry } from '@hooks';
 interface Options<T> {
   onSuccess?: (data: T) => void;
   onError?: (error: string) => void;

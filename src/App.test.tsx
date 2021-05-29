@@ -3,5 +3,5 @@ import App from './App';
 
 test('renders learn react link', () => {
   // TODO: Make custom render fn
-  // render(<App />);
+  render(<App />);
 });
