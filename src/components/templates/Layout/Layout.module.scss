@@ -1,0 +1,12 @@
+@import '../../../sass/utils';
+
+.container {
+  display: grid;
+  gap: 4rem;
+
+  &.multi-column {
+    @include media('lg') {
+      grid-template-columns: 1fr 30%;
+    }
+  }
+}

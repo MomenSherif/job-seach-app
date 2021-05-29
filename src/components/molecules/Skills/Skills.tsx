@@ -14,7 +14,7 @@ const Skills: React.FC<{ jobID: string }> = ({ jobID }) => {
 
   return (
     <div className={styles.container}>
-      {loading && !skills ? (
+      {loading ? (
         <TagsSkeleton />
       ) : (
         skills?.slice(0, NUM_OF_SKILLS).map(({ skill_uuid, skill_name }) => (

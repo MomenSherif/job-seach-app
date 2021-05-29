@@ -9,6 +9,7 @@ import { JobRecord } from '../reducers/jobs';
 export const FETCH_JOBS_REQUEST = 'FETCH_JOBS_REQUEST';
 export const FETCH_JOBS_SUCCESS = 'FETCH_JOBS_SUCCESS';
 export const FETCH_JOBS_ERROR = 'FETCH_JOBS_ERROR';
+export const ADD_JOBS = 'ADD_JOBS';
 
 const jobEntity = new schema.Entity('Jobs', {}, { idAttribute: 'uuid' });
 
@@ -28,10 +29,17 @@ export interface FetchJobsErrorAction {
   error: string;
 }
 
+export interface AddJobsAction {
+  type: typeof ADD_JOBS;
+  payload: JobRecord;
+  ids: string[];
+}
+
 export type JobsActionTypes =
   | FetchJobsSuccessAction
   | FetchJobsRequestAction
-  | FetchJobsErrorAction;
+  | FetchJobsErrorAction
+  | AddJobsAction;
 
 export const fetchJobsRequest = (): FetchJobsRequestAction => ({
   type: FETCH_JOBS_REQUEST,
@@ -70,4 +78,13 @@ export const fetchJobs = (): ThunkAction => (dispatch, getState) => {
     .catch((error: string) => {
       dispatch(fetchJobsError(error));
     });
+};
+
+export const addJobs = (jobs: Job[]): AddJobsAction => {
+  const { entities, result } = normalize(jobs, [jobEntity]);
+  return {
+    type: ADD_JOBS,
+    payload: entities.Jobs as JobRecord,
+    ids: result,
+  };
 };

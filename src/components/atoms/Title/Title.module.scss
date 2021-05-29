@@ -6,18 +6,19 @@
   margin-bottom: 0.7em;
 
   &.h1 {
-    @include font('2xl');
+    @include font('3xl');
 
-    @include media('sm') {
-      @include font('3xl');
-    }
-
-    @include media('xl') {
+    @include media('md') {
       @include font('4xl');
     }
   }
 
   &.h2 {
+    @include font('2xl');
+
+    @include media('md') {
+      @include font('3xl');
+    }
   }
 
   &.h3 {

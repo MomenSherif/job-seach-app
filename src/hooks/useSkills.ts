@@ -7,6 +7,7 @@ import { getJobRelatedSkills } from '@api/jobs';
 
 export default function useSkills(jobID: string) {
   const skillIDs = useSelector((state) => state.jobSkills[jobID]);
+
   const skills = useSelector((state) => state.skills.byId);
   const dispatch = useDispatch();
 
@@ -16,15 +17,16 @@ export default function useSkills(jobID: string) {
       enable: !skillIDs,
       onSuccess: ({ skills }) => dispatch(action.addSkills(skills, jobID)),
     },
+    [jobID],
   );
 
   const skillsResult = useMemo(
     () => (skillIDs ? skillIDs.map((id) => skills[id]) : data?.skills),
-    [skillIDs, data?.skills, skills],
+    [skillIDs, data, skills],
   );
 
   return {
-    loading,
+    loading: loading && !skillIDs,
     error,
     skills: skillsResult,
     refetch,

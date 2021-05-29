@@ -1,0 +1,40 @@
+@import '../../../sass/utils';
+
+.sidebar {
+  order: -1;
+  overflow: hidden;
+
+  @include media('lg') {
+    order: 0;
+  }
+}
+
+.title {
+  @include media('lg') {
+    margin-bottom: 3rem;
+  }
+}
+
+.content {
+  @include space-y(2.7rem);
+  max-height: 65rem;
+  padding: 2rem;
+  overflow-x: auto;
+  box-shadow: inset 0 5px 5px rgba($black, 0.03);
+
+  @include scrollbars(1rem, $primary, #e5e7eb);
+
+  & > * {
+    display: flex;
+  }
+}
+
+.navlist {
+  @include media('lg') {
+    list-style-type: disc;
+  }
+
+  & > * {
+    flex-shrink: 0;
+  }
+}

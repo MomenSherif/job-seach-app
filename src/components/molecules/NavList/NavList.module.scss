@@ -2,5 +2,13 @@
 
 .nav-list {
   display: flex;
-  @include space-x(2.4rem);
+
+  &.horizontal {
+    @include space-x(2.4rem);
+  }
+
+  &.vertical {
+    flex-direction: column;
+    @include space-y(2.4rem);
+  }
 }

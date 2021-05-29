@@ -7,6 +7,7 @@ module.exports = {
       '@molecules': path.resolve(__dirname, 'src/components/molecules'),
       '@organisms': path.resolve(__dirname, 'src/components/organisms'),
       '@pages': path.resolve(__dirname, 'src/components/pages'),
+      '@templates': path.resolve(__dirname, 'src/components/templates'),
       '@skeletons': path.resolve(__dirname, 'src/components/skeletons'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@utils': path.resolve(__dirname, 'src/utils'),

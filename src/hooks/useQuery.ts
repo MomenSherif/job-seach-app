@@ -14,7 +14,7 @@ export default function useQuery<T = any>(
   options: Options<T> = {
     enable: true,
   },
-  deps: React.DependencyList = [],
+  deps: any[] = [],
 ) {
   const [state, setState] = useComplexState<{
     loading: boolean;
@@ -27,11 +27,13 @@ export default function useQuery<T = any>(
   });
 
   const [retry, doRetry] = useRetry();
-  const promiseFnRef = useRef(promiseFn);
+  const promiseFnRef = useRef<typeof promiseFn>();
+  promiseFnRef.current = promiseFn;
 
   const { enable } = options;
+
   useEffect(() => {
-    if (!enable) return;
+    if (!enable || !promiseFnRef.current) return;
 
     if (!state.loading) setState({ loading: true });
 

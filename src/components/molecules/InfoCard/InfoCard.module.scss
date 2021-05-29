@@ -1,0 +1,38 @@
+@import '../../../sass/utils';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  box-shadow: $shadow-md;
+  @include space-y(2rem);
+
+  @include media('md') {
+    @include space-y(2.4rem);
+  }
+
+  h3,
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-direction: column;
+  @include space-y(1rem);
+
+  @include media('sm') {
+    flex-direction: row;
+    @include space-y(0rem);
+    @include space-x(3rem);
+  }
+
+  @include media('lg') {
+    @include space-x(10rem);
+  }
+
+  strong {
+    margin-right: 0.5rem;
+  }
+}

@@ -18,7 +18,7 @@ export type ThunkAction<T = any> = ReduxThunkAction<
 >;
 
 // Action Exports
-export { fetchJobs } from './jobs';
+export { fetchJobs, addJobs } from './jobs';
 
 export { addSkills } from './skills';
 

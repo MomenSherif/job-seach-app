@@ -2,6 +2,7 @@ import {
   FETCH_JOBS_REQUEST,
   FETCH_JOBS_SUCCESS,
   FETCH_JOBS_ERROR,
+  ADD_JOBS,
 } from '../actions/jobs';
 import { AppActions } from '@actions';
 import { Job } from '@types';
@@ -47,6 +48,12 @@ export default function jobsReducer(
         ...state,
         loading: false,
         error: action.error,
+      };
+    case ADD_JOBS:
+      return {
+        ...state,
+        byId: { ...state.byId, ...action.payload },
+        allIds: [...state.allIds, ...action.ids],
       };
     default:
       return state;

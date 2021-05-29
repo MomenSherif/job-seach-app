@@ -7,6 +7,7 @@
       "@organisms/*": ["./components/organisms/*"],
       "@pages/*": ["./components/pages/*"],
       "@skeletons/*": ["./components/skeletons/*"],
+      "@templates/*": ["./components/templates/*"],
       "@hooks": ["./hooks"],
       "@utils": ["./utils"],
       "@actions": ["./redux/actions"],

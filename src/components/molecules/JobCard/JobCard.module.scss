@@ -2,9 +2,13 @@
 
 .card {
   background-color: $white;
-  box-shadow: $shadow-sm;
+  box-shadow: $shadow-md;
   border-radius: 0.5rem;
-  padding: 3rem 3.6rem;
+  padding: 2.5rem 3rem;
+
+  @include media('md') {
+    padding: 3rem 3.6rem;
+  }
 }
 
 .skills-heading {
