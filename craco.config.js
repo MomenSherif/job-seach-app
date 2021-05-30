@@ -14,6 +14,7 @@ module.exports = {
       '@actions': path.resolve(__dirname, 'src/redux/actions'),
       '@api': path.resolve(__dirname, 'src/api'),
       '@types': path.resolve(__dirname, 'src/types'),
+      '@sass': path.resolve(__dirname, 'src/sass/_utils.scss')
     },
   },
 };
