@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 import { useComplexState, useRetry } from '@hooks';
+import { PromiseWithCancel } from '@utils';
 interface Options<T> {
   onSuccess?: (data: T) => void;
   onError?: (error: string) => void;
@@ -8,7 +9,7 @@ interface Options<T> {
 }
 
 export default function useQuery<T = any>(
-  promiseFn: () => Promise<T>,
+  promiseFn: () => PromiseWithCancel<T>,
   options: Options<T> = {
     enable: true,
   },
@@ -35,8 +36,9 @@ export default function useQuery<T = any>(
 
     if (!state.loading) setState({ loading: true, error: null });
 
-    promiseFnRef
-      .current()
+    const promiseResult = promiseFnRef.current();
+
+    promiseResult
       .then((data) => {
         setState({ data, loading: false });
         options?.onSuccess?.(data);
@@ -45,6 +47,8 @@ export default function useQuery<T = any>(
         setState({ error, loading: false });
         options?.onError?.(error);
       });
+
+    return () => promiseResult.cancel?.();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...deps, enable, retry]);
 
