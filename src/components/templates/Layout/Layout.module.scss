@@ -5,8 +5,8 @@
   gap: 6rem;
 
   &.multi-column {
-    @include media('lg') {
-      grid-template-columns: 1fr 30%;
+    @include media('xl') {
+      grid-template-columns: 2fr 1fr;
     }
   }
 }

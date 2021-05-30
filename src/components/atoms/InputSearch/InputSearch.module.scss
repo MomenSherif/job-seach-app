@@ -11,7 +11,7 @@
   width: 100%;
   max-width: 70rem;
   padding: 1rem;
-  border: 2px solid darken($gray-light, 30);
+  border: 4px solid lighten($gray-dark, 20);
   border-radius: 0.5rem;
   outline: none;
   @include font('lg');
@@ -22,7 +22,7 @@
   }
 
   &:focus {
-    border-color: $primary;
-    box-shadow: 0 0 2px 2px lighten($primary, 40);
+    border-color: rgba($primary, 0.9);
+    box-shadow: 0 0 0 5px $black, 0 0 6px 5px rgba($primary, 0.9);
   }
 }

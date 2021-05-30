@@ -17,15 +17,18 @@ const Skills: React.FC<{ jobID: string }> = ({ jobID }) => {
         <TagsSkeleton />
       ) : (
         <>
-          {skills?.slice(0, NUM_OF_SKILLS).map(({ skill_uuid, skill_name }) => (
-            <Link
-              to={`/skills/${skill_uuid}`}
-              key={skill_uuid}
-              style={{ display: 'inline-flex', textDecoration: 'none' }}
-            >
-              <Tag>{skill_name}</Tag>
-            </Link>
-          ))}
+          {!error &&
+            skills
+              ?.slice(0, NUM_OF_SKILLS)
+              .map(({ skill_uuid, skill_name }) => (
+                <Link
+                  to={`/skills/${skill_uuid}`}
+                  key={skill_uuid}
+                  style={{ display: 'inline-flex', textDecoration: 'none' }}
+                >
+                  <Tag>{skill_name}</Tag>
+                </Link>
+              ))}
           {(error || !skills?.length) && (
             <ErrorFallback error={error!} message="No skills.." />
           )}

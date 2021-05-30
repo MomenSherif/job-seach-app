@@ -12,18 +12,21 @@ const SideBar: React.FC<SideBarProps> = ({
   loading = false,
   children,
   list,
+  className = '',
   ...props
 }) => {
-  const isLargeScreen = useMediaQuery('(min-width: 1024px)');
+  const isLargeScreen = useMediaQuery('(min-width: 1280px)');
 
   return (
-    <aside className={styles.sidebar} {...props}>
+    <aside className={`${styles.sidebar} ${className}`} {...props}>
       <Title component="h2" variant="h3" className={styles.title}>
         {title}
       </Title>
       <div className={styles.content}>
         {loading ? (
-          repeatElement(5, <Skeleton height={40} width="100%" />)
+          <div className={styles.loader}>
+            {repeatElement(5, <Skeleton height={40} width="100%" />)}
+          </div>
         ) : children ? (
           children
         ) : (

@@ -4,11 +4,11 @@
   display: flex;
 
   &.horizontal {
-    @include space-x(2.4rem);
+    @include space-x(1rem);
   }
 
   &.vertical {
     flex-direction: column;
-    @include space-y(2.4rem);
+    @include space-y(2rem);
   }
 }

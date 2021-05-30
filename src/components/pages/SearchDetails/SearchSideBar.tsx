@@ -29,6 +29,7 @@ const SearchSideBar: React.FC = () => {
       list={history.map((h) => ({
         label: h,
         to: `/search?q=${h}`,
+        activeClassName: '',
       }))}
       title="Search History"
     />

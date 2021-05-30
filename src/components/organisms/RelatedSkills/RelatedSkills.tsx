@@ -17,7 +17,8 @@ const RelatedSkills: React.FC<{ jobID: string }> = ({ jobID }) => {
       <div className={styles.skills}>
         {loading
           ? repeatElement(5, <CardSkeleton height={170} />)
-          : skills?.map((skill) => (
+          : !error &&
+            skills?.map((skill) => (
               <InfoCard
                 key={skill.skill_uuid}
                 to={`/skills/${skill.skill_uuid}`}

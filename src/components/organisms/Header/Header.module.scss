@@ -4,7 +4,7 @@
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   box-shadow: $shadow-sm;
-  background-color: $primary;
+  background-color: $gray-dark;
   color: $white;
 
   a {
@@ -20,8 +20,14 @@
 
 .logo {
   @include font('lg');
+  color: $white;
+  transition: color 0.1s ease-in-out;
 
   @include media('md') {
     @include font('2xl');
+  }
+
+  &:hover {
+    color: $primary;
   }
 }

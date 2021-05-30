@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { useSelector, useDispatch, useQuery } from '@hooks';
 import * as action from '@actions';
 import { getJobRelatedSkills } from '@api/jobs';
+import { Skill } from '@types';
 
 export default function useSkills(jobID: string) {
   const skillIDs = useSelector((state) => state.jobSkills[jobID]);
@@ -15,7 +16,6 @@ export default function useSkills(jobID: string) {
     {
       enable: !skillIDs,
       onSuccess: ({ skills }) => dispatch(action.addSkills(skills, jobID)),
-      onError: () => dispatch(action.addSkills([], jobID)),
     },
     [jobID],
   );

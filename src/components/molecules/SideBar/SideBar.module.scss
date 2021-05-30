@@ -4,7 +4,7 @@
   order: -1;
   overflow: hidden;
 
-  @include media('lg') {
+  @include media('xl') {
     order: 0;
   }
 }
@@ -18,20 +18,34 @@
 .content {
   @include space-y(2.7rem);
   max-height: 65rem;
-  padding: 2rem;
+  padding: 1rem;
   overflow-x: auto;
   box-shadow: inset 0 5px 5px rgba($black, 0.03);
 
-  @include scrollbars(1rem, $primary, #e5e7eb);
+  @include scrollbars(0.7rem, $primary, #e5e7eb);
 
+  @include media('xl') {
+    padding: 2rem;
+  }
+}
+
+.loader {
+  display: flex;
+  @include space-x(1rem);
+
+  @include media('xl') {
+    flex-direction: column;
+    @include space-x(0);
+    @include space-y(2rem);
+  }
   & > * {
-    display: flex;
+    flex: 1;
   }
 }
 
 .navlist {
-  @include media('lg') {
-    list-style-type: disc;
+  a {
+    display: flex;
   }
 
   & > * {
