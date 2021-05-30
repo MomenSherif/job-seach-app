@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@test-utils';
 import App from './App';
 
 test('renders learn react link', () => {
   // TODO: Make custom render fn
-  render(<App />);
+  render(<div>Hello App</div>);
 });

@@ -10,6 +10,7 @@
       "@templates/*": ["./components/templates/*"],
       "@hooks": ["./hooks"],
       "@utils": ["./utils"],
+      "@test-utils": ["./utils/test-utils"],
       "@actions": ["./redux/actions"],
       "@api/*": ["./api/*"],
       "@types": ["./types"]

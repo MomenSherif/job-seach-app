@@ -21,7 +21,7 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({
       }`}
     >
       <VscError className={styles.icon} size={50} />
-      <p className={styles.message}>
+      <p className={styles.message} role="alert">
         {message ?? ErrorCodeMap[error] ?? error}
       </p>
       {onRetry && (
