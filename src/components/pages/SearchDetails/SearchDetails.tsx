@@ -2,6 +2,7 @@ import { shallowEqual } from 'react-redux';
 
 import Title from '@atoms/Title';
 import JobCard from '@molecules/JobCard';
+import ErrorFallback from '@molecules/ErrorFallback';
 import CardSkeleton from '@skeletons/CardSkeleton';
 import { useSelector } from '@hooks';
 import { repeatElement } from '@utils';
@@ -30,6 +31,7 @@ const SearchDetails: React.FC = () => {
             <JobCard key={uuid} title={suggestion} uuid={uuid} />
           ))}
         </div>
+        {error && <ErrorFallback error={error} />}
       </Layout>
     </>
   );

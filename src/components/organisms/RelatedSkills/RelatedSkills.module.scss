@@ -11,7 +11,7 @@
   max-height: 90rem;
   padding: 2rem;
   overflow-y: auto;
-  box-shadow: inset 0 5px 5px rgba($black, 0.03);
+  box-shadow: $scroll-box-shadow;
 
   @include scrollbars(0.7rem, $primary, #e5e7eb);
 

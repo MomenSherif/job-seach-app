@@ -25,7 +25,10 @@ const SideBar: React.FC<SideBarProps> = ({
       <div className={styles.content}>
         {loading ? (
           <div className={styles.loader}>
-            {repeatElement(5, <Skeleton height={40} width="100%" />)}
+            {repeatElement(
+              5,
+              <Skeleton height={40} width="100%" style={{ opacity: 0.2 }} />,
+            )}
           </div>
         ) : children ? (
           children

@@ -13,19 +13,20 @@ const JobDetails: React.FC = () => {
   const { uuid } = useParams<{ uuid: string }>();
   const { skill, loading, error, refetch } = useSkill(uuid);
 
+  if (error) return <ErrorFallback error={error} onRetry={refetch} />;
+
   return (
     <>
       <header className={styles.header}>
         {loading || error ? (
-          <Skeleton height={60} width="60vw" />
+          <Skeleton height={60} width="60vw" style={{ opacity: 0.2 }} />
         ) : (
           <>
             <Title component="h1">{skill?.skill_name}</Title>
           </>
         )}
       </header>
-      {error && <ErrorFallback error={error} onRetry={refetch} />}
-
+      <p>{skill?.description}</p>
       <Layout sidebar={<SkillSideBar skillID={uuid} />}>
         <RelatedJobs skillID={uuid} />
       </Layout>

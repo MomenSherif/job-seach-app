@@ -17,12 +17,13 @@ const RelatedJobs: React.FC<{ skillID: string }> = ({ skillID }) => {
   return (
     <section className={styles.section}>
       <Title component="h2" variant="h3" className={styles.title}>
-        Related Skills
+        Related Jobs
       </Title>
       <div className={styles.skills}>
         {loading
           ? repeatElement(5, <CardSkeleton height={170} />)
-          : data?.map((job) => (
+          : !error &&
+            data?.map((job) => (
               <InfoCard
                 key={job.job_uuid}
                 to={`/skills/${job.job_uuid}`}

@@ -1,6 +1,5 @@
 import { Skill } from '@types';
 import { axiosGet } from '@utils';
-import axios from './axiosInstance';
 
 type SkillResponse = Pick<Skill, 'skill_name' | 'description'> & {
   uuid: string;
