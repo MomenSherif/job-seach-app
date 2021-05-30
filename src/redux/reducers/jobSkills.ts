@@ -1,5 +1,4 @@
 import { AppActions } from '@actions';
-import { Skill } from '@types';
 import { ADD_SKILLS } from '../actions/skills';
 
 type JobSkillsState = Record<string, string[]>;

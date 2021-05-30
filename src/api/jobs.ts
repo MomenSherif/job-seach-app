@@ -1,6 +1,6 @@
 import axios from './axiosInstance';
 import { getOffsetFromLinks } from '@utils';
-import { Job, Skill } from '@types';
+import { Job, Skill, Suggestion } from '@types';
 
 export const getTotalJobsCount = (): Promise<number> => {
   return axios.get<number, Job[]>('/jobs?limit=1').then((jobs) => {
@@ -29,3 +29,8 @@ export const getJobRelatedJobs = (
       `/jobs/${jobID}/related_jobs`,
     )
     .then((data) => data.related_job_titles);
+
+export const getJobsAutoComplete = (
+  searchTerm: string,
+): Promise<Suggestion[]> =>
+  axios.get(`/jobs/autocomplete?contains=${searchTerm}`);

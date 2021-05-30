@@ -15,6 +15,7 @@ export default function useSkills(jobID: string) {
     {
       enable: !skillIDs,
       onSuccess: ({ skills }) => dispatch(action.addSkills(skills, jobID)),
+      onError: () => dispatch(action.addSkills([], jobID)),
     },
     [jobID],
   );

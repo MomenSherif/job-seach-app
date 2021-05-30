@@ -18,9 +18,7 @@ export default function useIntersectionObserver<
   enabled = true,
 }: Options<T>) {
   useEffect(() => {
-    if (!enabled) {
-      return;
-    }
+    if (!enabled) return;
 
     const observer = new IntersectionObserver(
       (entries) =>
@@ -33,14 +31,10 @@ export default function useIntersectionObserver<
 
     const el = target && target.current;
 
-    if (!el) {
-      return;
-    }
+    if (!el) return;
 
     observer.observe(el);
 
-    return () => {
-      observer.unobserve(el);
-    };
+    return () => observer.unobserve(el);
   }, [enabled, rootMargin, threshold, target, onIntersect]);
 }

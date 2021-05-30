@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import Skeleton from 'react-loading-skeleton';
 
 import Title from '@atoms/Title';
 import JobCard from '@molecules/JobCard';

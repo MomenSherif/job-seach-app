@@ -1,0 +1,28 @@
+@import '../../../sass/utils';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7rem;
+}
+
+.input {
+  width: 100%;
+  max-width: 70rem;
+  padding: 1rem;
+  border: 2px solid darken($gray-light, 30);
+  border-radius: 0.5rem;
+  outline: none;
+  @include font('lg');
+
+  @include media('lg') {
+    padding: 2rem;
+    @include font('xl');
+  }
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 2px 2px lighten($primary, 40);
+  }
+}

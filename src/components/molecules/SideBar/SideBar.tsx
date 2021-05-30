@@ -9,14 +9,15 @@ import styles from './SideBar.module.scss';
 
 const SideBar: React.FC<SideBarProps> = ({
   title,
-  loading,
+  loading = false,
   children,
   list,
+  ...props
 }) => {
   const isLargeScreen = useMediaQuery('(min-width: 1024px)');
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className={styles.sidebar} {...props}>
       <Title component="h2" variant="h3" className={styles.title}>
         {title}
       </Title>

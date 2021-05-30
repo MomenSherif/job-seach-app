@@ -2,8 +2,8 @@
 
 .title {
   margin-top: 0;
-  // margin-bottom: calc((66 / 100) * 1em);
   margin-bottom: 0.7em;
+  word-break: break-all;
 
   &.h1 {
     @include font('3xl');
