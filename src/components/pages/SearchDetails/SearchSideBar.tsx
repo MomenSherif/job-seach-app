@@ -1,7 +1,7 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
 
-import { useAsyncDebounce, usePersistedState, useSelector } from '@hooks';
+import { usePersistedState, useSelector } from '@hooks';
 import SideBar from '@molecules/SideBar';
 
 import styles from './SearchDetails.module.scss';
@@ -20,7 +20,7 @@ const SearchSideBar: React.FC = () => {
     setHitory((prev) => [...new Set([query, ...prev])].slice(0, 10));
   }, [query, setHitory]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (hash !== '#history') return;
 
     // TODO: FIX THIS HACK #@%!
