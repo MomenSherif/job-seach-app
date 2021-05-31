@@ -1,3 +1,4 @@
+import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 
 import Title from '@atoms/Title';
@@ -7,18 +8,18 @@ import { repeatElement } from '@utils';
 import SideBarProps from './SideBar.types';
 import styles from './SideBar.module.scss';
 
-const SideBar: React.FC<SideBarProps> = ({
+const SideBar = React.forwardRef<HTMLElement, SideBarProps>(({
   title,
   loading = false,
   children,
   list,
   className = '',
   ...props
-}) => {
+}, ref) => {
   const isLargeScreen = useMediaQuery('(min-width: 1280px)');
 
   return (
-    <aside className={`${styles.sidebar} ${className}`} {...props}>
+    <aside className={`${styles.sidebar} ${className}`} ref={ref} {...props}>
       <Title component="h2" variant="h3" className={styles.title}>
         {title}
       </Title>
@@ -43,6 +44,6 @@ const SideBar: React.FC<SideBarProps> = ({
       </div>
     </aside>
   );
-};
+});
 
 export default SideBar;
