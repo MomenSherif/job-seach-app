@@ -1,0 +1,33 @@
+@import '@sass';
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .button {
+    cursor: pointer;
+    background-color: $white;
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $black;
+      color: $white;
+      border-color: $white;
+    }
+
+    &:active {
+      transform: translateY(2px) scale(0.98);
+    }
+  }
+}

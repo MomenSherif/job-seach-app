@@ -8,14 +8,17 @@ import store from './redux/store';
 import reportWebVitals from './reportWebVitals';
 import './normalize.scss';
 import './index.scss';
+import ErrorBoundary from '@organisms/ErrorBoundary';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );
